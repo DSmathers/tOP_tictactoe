@@ -1,0 +1,29 @@
+#root   {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#game-board {
+    width: 450px;
+    height: 450px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: auto;
+}
+
+.game-space {
+    width: 100%;
+}
+
+#b, #e, #h {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#d, #e, #f  {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
