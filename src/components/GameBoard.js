@@ -1,7 +1,7 @@
 import React from 'react'
-import { testFunc, takeTurn } from '../gameLogic'
+import { takeTurn } from '../gameLogic'
 
-const GameBoard = ({}) => {
+const GameBoard = () => {
     const gameSpaces = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
     
     return (

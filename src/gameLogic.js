@@ -1,3 +1,6 @@
+import React, { useState } from "react"
+
+
 const checkWinner = () => {
     const winningCombos = [
         [0, 1, 2],
@@ -20,10 +23,9 @@ const checkWinner = () => {
         if(a === b && b === c)  {
             switch(a)   {
                 case 'X': alert('Player One Wins');
-                currentGameBoard[winCon[0, 2]].style.backgroundColor = 'red'
-                return;
-                case 'O': alert('Player Two Wins')
-                return;
+                return 'Player One'
+                case 'O': alert('Player Two Wins');
+                return
             }
         }
         else return
@@ -49,15 +51,13 @@ function PlayerTwo(name, marker)    {
 }
 
 
-let currentTurn = 0;
-const decideCurrentPlayer = () => {
+
+const decideCurrentPlayer = (currentTurn) => {
     if(currentTurn % 2 === 0)   { 
-        currentTurn +=1;
-        return(playerOne.marker);
+        return(playerOne);
     }
     else{
-        currentTurn +=1;
-        return(playerTwo.marker);
+        return(playerTwo);
     };
     
 }
@@ -65,9 +65,10 @@ const decideCurrentPlayer = () => {
 
 
 
-
+let currentTurn = 0;
 const takeTurn = (e) => {
-    let currentPlayer = decideCurrentPlayer()
+    let currentPlayer = decideCurrentPlayer(currentTurn)
+    
     if(currentTurn <= 9){
     // Checks the square the user clicked in to verify its empty.
     switch(e.target.innerText)  {
@@ -75,7 +76,9 @@ const takeTurn = (e) => {
         break;
         case 'O': alert('That spot is already occupied, please try again');
         break;
-        case '': e.target.innerText = currentPlayer
+        case '': 
+            e.target.innerText = currentPlayer.marker;
+            currentTurn += 1;
     }
     checkWinner();
 }
